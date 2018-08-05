@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" a href="css/bootstrap.css"/>
+    <link rel="stylesheet" a href="css/fonts.css"/>
+    <link rel="stylesheet" a href="css/mystyle.css"/>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrapjquery.js"></script>
+    <script src="js/popper.js"></script>
+    <title>Bootstrap Sample</title>
+</head>
+<body>
+
+    <div class="container" id = "contain">
+        <h2 class="display-1">OVFAS</h2>
+
+    </div>
+    <div class="row">
+        <div class="column"></div>
+        <div class="column"></div>
+    </div>
+
+<form action="action_page.php">
+    
+    <div class = "container">
+        <div class="jumbotron col-6">
+        <center><h1>Outing Form</h1></center>
+        <p>Please Fill in this form to get the approval of outing request.</p>
+        <hr>
+
+        <label for="Full Name"><h5>Full Name</h5></label>
+        <div class="row">
+            <div class="col-6">
+                <input type="text" class="form-control" placeholder="First Name" required>
+            </div>
+            <div class="col-6">
+                <input type="text" class="form-control" placeholder="Last Name" required>
+            </div>
+        </div>
+
+        <p></p>
+        <div class="form-group">
+        <label for="Registration Number"><h5>Registration Number</h5></label>
+        <div class="row">
+            <div class="col-6">
+                <input type="text" class="form-control" placeholder="Enter your registration number" required>
+            </div>
+        </div>
+        </div>
+        <p></p>
+        <div class="form-group">
+                <label for="Select"><h5>Mess Type</h5></label>
+                <div class="row">
+                    <div class="col-6">
+                        <select id="Select" class="form-control">
+                                <option>Special</option>
+                                <option>North-Veg</option>
+                                <option>North Non-Veg</option>
+                                <option>South-Veg</option>
+                                <option>South Non-Veg</option>
+                        </select>
+                    </div>
+                </div>
+        </div>
+        <p></p>
+
+        <label for="Student Mobile Number:"><h5>Student Mobile Number:</h5></label>
+        <div class="row">
+                <div class="col-6">
+                    <input type="tel" max="10" class="form-control" placeholder="Enter your mobile number" required>
+                </div>
+        </div>
+        <p></p>
+
+        <label for="Parents Mobile Number:"><h5>Parents Mobile Number:</h5></label>
+        <div class="row">
+                <div class="col-6">
+                    <input type="tel" max="10" class="form-control" placeholder="Enter the mobile number" required>
+                </div>
+        </div>
+        <p></p>
+        
+        <div class="form-group">
+            <label for="Select"><h5>Hostel Block:</h5></label>
+            <div class="row">
+                    <div class="col-4">
+                        <select id="Select" class="form-control">
+                            <option>A Block</option>
+                            <option>B Block(Boy's Hostel)</option>
+                            <option>B Block(Girl's Hostel)</option>
+                            <option>C Block</option>
+                        </select>
+                    </div>
+            </div>
+        </div>
+        
+        <!--<div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="false">
+                Select The Hostel Block
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <button class="dropdown-item" type="button">A Block</button>
+                    <button class="dropdown-item" type="button">B Block(Boy's Hostel)</button>
+                    <button class="dropdown-item" type="button">B Block(Girl's Hostel)</button>
+                    <button class="dropdown-item" type="button">C Block</button>
+            </div>
+        </div>-->
+
+       <label for="Time Of Leaving"><h5>Time of Leaving:</h5></label>
+        <div class="row">
+            <div class="col-3">
+                <input type="time" class="form-control" required>
+            </div>
+            <div class="col-3">
+                <select id="Select" class="form-control">
+                    <option>AM</option>
+                    <option>PM</option>
+                </select>
+            </div>
+        </div>
+
+
+
+        <label for="Time Of Arrival"><h5>Time of Arrival:</h5></label>
+        <div class="row">
+            <div class="col-3">
+                <input type="time"  class="form-control" required>
+            </div>
+            <div class="col-3">
+                <select id="Select" class="form-control">
+                    <option>AM</option>
+                    <option>PM</option>
+                </select>
+            </div>
+        </div>
+
+        <label for="Visiting Address"><h5>Visiting Address</h5></label>
+        <div class="row">
+                <div class="col-6">
+                    <textarea class="form-control" id="Visiting Address"  rows="3" required></textarea>  
+                    <!--<input type="text" placeholder="Enter the visiting Address" class="form-control">-->
+                </div>
+        </div>
+
+        <label for="Purpose of Visiting"><h5>Purpose of Visiting</h5></label> 
+        <div class="row">
+            <div class="col-6">
+                <input type="text" class="form-control" required>
+            </div>
+        </div>
+        
+        <label for="Permanent Address"><h5>Permanent Address</h5></label>
+        <div class="row">
+            <div class="col-6">
+                <textarea class="form-control" id="Permanent Address" rows="3" required></textarea>
+            </div>
+        </div>
+
+        <br>
+
+        <button type="button" class="btn btn-primary">Submit</button>
+    </div>
+    </div>
+    </div>
+</form>
+</div>    
+</body>
+</html>
