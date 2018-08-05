@@ -1,27 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" a href="css/bootstrap.css"/>
-    <link rel="stylesheet" a href="css/fonts.css"/>
-    <link rel="stylesheet" a href="css/mystyle.css"/>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/bootstrapjquery.js"></script>
-    <script src="js/popper.js"></script>
-    <title>Bootstrap Sample</title>
-</head>
-<body>
+{% extends 'ov/base.html' %}
+{% block body %}
 
-    <div class="container" id = "contain">
-        <h2 class="display-1">OVFAS</h2>
 
-    </div>
-    <div class="row">
+<div class="row">
         <div class="column"></div>
         <div class="column"></div>
-    </div>
+</div>
 
 <form action="action_page.php">
     
@@ -140,7 +124,7 @@
         <label for="Visiting Address"><h5>Visiting Address</h5></label>
         <div class="row">
                 <div class="col-6">
-                    <textarea class="form-control" id="Visiting Address"  rows="3" required></textarea>  
+                    <textarea class="form-control" id="Visiting_address"  rows="3" required></textarea>  
                     <!--<input type="text" placeholder="Enter the visiting Address" class="form-control">-->
                 </div>
         </div>
@@ -155,7 +139,7 @@
         <label for="Permanent Address"><h5>Permanent Address</h5></label>
         <div class="row">
             <div class="col-6">
-                <textarea class="form-control" id="Permanent Address" rows="3" required></textarea>
+                <textarea class="form-control" id="Permanent_address" rows="3" required></textarea>
             </div>
         </div>
 
@@ -166,6 +150,6 @@
     </div>
     </div>
 </form>
-</div>    
-</body>
-</html>
+</div>  
+</center>  
+{% endblock %}
