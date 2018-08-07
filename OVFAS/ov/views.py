@@ -7,3 +7,7 @@ def index(request):
 
 def outingform(request):
     return render(request,'ov/outingform.html')
+
+
+def registration(request):
+    return render(request,'ov/registration.html')
