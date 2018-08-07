@@ -1,21 +1,26 @@
 {% extends 'ov/base.html' %}
 {% block body %}
-
+{% load staticfiles %}
 
 <div class="row">
         <div class="column"></div>
         <div class="column"></div>
 </div>
-
+<div class="content-wrapper" align="center">
 <form action="action_page.php">
     
     <div class = "container">
         <div class="jumbotron col-6">
+            <center><img src="{% static 'ov/Capture.PNG' %}" class="img-fluid" alt="Responsive image"></center>
+            <hr>
         <center><h1>Outing Form</h1></center>
         <p>Please Fill in this form to get the approval of outing request.</p>
         <hr>
-
+        
+        
+        <div style="text-align: left;">
         <label for="Full Name"><h5>Full Name</h5></label>
+        </div>
         <div class="row">
             <div class="col-6">
                 <input type="text" class="form-control" placeholder="First Name" required>
@@ -27,7 +32,9 @@
 
         <p></p>
         <div class="form-group">
+            <div style="text-align: left;">
         <label for="Registration Number"><h5>Registration Number</h5></label>
+        </div>
         <div class="row">
             <div class="col-6">
                 <input type="text" class="form-control" placeholder="Enter your registration number" required>
@@ -36,7 +43,9 @@
         </div>
         <p></p>
         <div class="form-group">
+                <div style="text-align: left;">
                 <label for="Select"><h5>Mess Type</h5></label>
+                </div>
                 <div class="row">
                     <div class="col-6">
                         <select id="Select" class="form-control">
@@ -51,7 +60,9 @@
         </div>
         <p></p>
 
+        <div style="text-align: left;">
         <label for="Student Mobile Number:"><h5>Student Mobile Number:</h5></label>
+        </div>
         <div class="row">
                 <div class="col-6">
                     <input type="tel" max="10" class="form-control" placeholder="Enter your mobile number" required>
@@ -59,16 +70,19 @@
         </div>
         <p></p>
 
-        <label for="Parents Mobile Number:"><h5>Parents Mobile Number:</h5></label>
+        <div style="text-align: left;">
+            <label for="Parents Mobile Number:"><h5>Parents Mobile Number:</h5></label>
+        </div>
         <div class="row">
                 <div class="col-6">
                     <input type="tel" max="10" class="form-control" placeholder="Enter the mobile number" required>
                 </div>
         </div>
-        <p></p>
         
         <div class="form-group">
+                <div style="text-align: left;">
             <label for="Select"><h5>Hostel Block:</h5></label>
+            </div>
             <div class="row">
                     <div class="col-4">
                         <select id="Select" class="form-control">
@@ -92,64 +106,91 @@
                     <button class="dropdown-item" type="button">C Block</button>
             </div>
         </div>-->
+        
 
-       <label for="Time Of Leaving"><h5>Time of Leaving:</h5></label>
+        
         <div class="row">
-            <div class="col-3">
-                <input type="time" class="form-control" required>
+            <div class="col-6">
+                    <div style="text-align: left;">
+                            <label for="Time Of Leaving"><h5>Time of Leaving:</h5></label>
+                    </div>
+                    <div class="row">
+                    <div class="col-7">
+                        <input type="time" class="form-control" required>
+                    </div>
+                    <div class="col-5">
+                    <select id="Select" class="form-control">
+                        <option>AM</option>
+                        <option>PM</option>
+                    </select>
+                    </div>
+                </div>
             </div>
-            <div class="col-3">
-                <select id="Select" class="form-control">
-                    <option>AM</option>
-                    <option>PM</option>
-                </select>
-            </div>
-        </div>
+            <hr>
 
 
-
+        <!--<div style="text-align: left;">-->
+        <div class="col-6">
+                <div style="text-align: left;">   
         <label for="Time Of Arrival"><h5>Time of Arrival:</h5></label>
-        <div class="row">
-            <div class="col-3">
+                    </div>
+            <div class="row">
+            <div class="col-7">
                 <input type="time"  class="form-control" required>
             </div>
-            <div class="col-3">
+            <div class="col-5">
                 <select id="Select" class="form-control">
                     <option>AM</option>
                     <option>PM</option>
                 </select>
             </div>
+            </div>
+        </div>
         </div>
 
+        
+
+        <div style="text-align: left;">
         <label for="Visiting Address"><h5>Visiting Address</h5></label>
+        </div>
         <div class="row">
-                <div class="col-6">
+                <div class="col-12">
                     <textarea class="form-control" id="Visiting_address"  rows="3" required></textarea>  
                     <!--<input type="text" placeholder="Enter the visiting Address" class="form-control">-->
                 </div>
         </div>
 
+
+        <div style="text-align: left;">
         <label for="Purpose of Visiting"><h5>Purpose of Visiting</h5></label> 
+        </div>
         <div class="row">
-            <div class="col-6">
+            <div class="col-12">
                 <input type="text" class="form-control" required>
             </div>
         </div>
         
+
+        <div style="text-align: left;">
         <label for="Permanent Address"><h5>Permanent Address</h5></label>
+        </div>
         <div class="row">
-            <div class="col-6">
+            <div class="col-12">
                 <textarea class="form-control" id="Permanent_address" rows="3" required></textarea>
             </div>
         </div>
 
         <br>
+        
 
+        <div style="text-align: left;">
         <button type="button" class="btn btn-primary">Submit</button>
+        </div>
     </div>
     </div>
     </div>
 </form>
+</div>
 </div>  
 </center>  
 {% endblock %}
