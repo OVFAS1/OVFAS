@@ -5,19 +5,22 @@
 <div class="content-wrapper" align="center">
     <div class ="container">
         <div class="jumbotron col-6">
+                <div class="alert alert-success" role="alert">
+                        Logged in as {{student_name}}
+                  </div>
             <center><img src="{% static 'ov/Capture.PNG' %}" class="img-fluid" alt="Responsive image"></center>
             <hr>
         <center><h1>Outing Form</h1></center>
         <p>Please Fill in this form to get the approval for outing request.</p>
         <hr>
         
-        <form action="POST">
+        <form method="POST">
         <div style="text-align: left;">
         <label for="Full Name"><h5>Full Name</h5></label>
         </div>
         <div class="row">
             <div class="col-12">
-                <input id='name' type="text" class="form-control" placeholder="Full name" required>
+                <input id='name' type="text" class="form-control" value="{{student_name}}"placeholder="Full name" readonly>
             </div>
         </div>
         <br>

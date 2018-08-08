@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ov'
+    'ov',
 ]
 
 MIDDLEWARE = [
@@ -55,6 +55,7 @@ ROOT_URLCONF = 'OVFAS.urls'
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates'),
 )
+
 
 TEMPLATES = [
     {

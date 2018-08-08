@@ -12,7 +12,6 @@ class HostelBlock(models.Model):
 
 class OutingForm(models.Model):
     reg_no_regex = RegexValidator(regex=r'\d{2}[a-zA-Z]{3}\d{4}', message="Registation number should be like 17BCE1007")
-    visibility=models.BooleanField(default=False)
     registration_no=models.CharField(validators=[reg_no_regex],max_length=9)
     name=models.CharField(max_length=100)
     mess_type=models.CharField(max_length=100)
@@ -31,11 +30,17 @@ class OutingForm(models.Model):
 
 class Student(models.Model):
     reg_no_regex = RegexValidator(regex=r'\d{2}[a-zA-Z]{3}\d{4}', message="Plese give valid registration number")
-    registration_no=models.CharField(validators=[reg_no_regex],max_length=9)
+    registration_no=models.CharField(validators=[reg_no_regex],max_length=9,primary_key=True)
     name=models.CharField(max_length=100)
+
+    def __str__(self):
+        return(self.registration_no)
+
+
+
+class visibility(models.Model):
+    outing_form=models.BooleanField(default=False)
     
-
-
 
 
 
