@@ -4,51 +4,65 @@
 <br>
 <div class="content-wrapper" align="center">
     <div class ="container">
-        <div class="jumbotron col-6">
+        <div class="jumbotron col-md-6">
+            {% if student_name %}
                 <div class="alert alert-success" role="alert">
                         Logged in as {{student_name}}
                   </div>
+            {% endif %}
             <center><img src="{% static 'ov/Capture.PNG' %}" class="img-fluid" alt="Responsive image"></center>
             <hr>
         <center><h1>Outing Form</h1></center>
         <p>Please Fill in this form to get the approval for outing request.</p>
         <hr>
+        {% if error_message %}
+        <div class="alert alert-warning" role="alert">
+            {% for i in error_message %}
+            <h5>{{i}}</h5>
+            {%endfor%}
+        </div>
+        {%endif%}
+        {% if success_message %}
+        <div class="alert alert-success" role="alert">
+        {% for i in success_message %}
+        <h6>{{i}}</h6>
+        {% endfor %}
+        </div>
+        {% endif %}
         
-        <form method="POST">
+        <form  id="import-form" action="{% url 'ov:outingfill' reg_no %}"  method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
         <div style="text-align: left;">
         <label for="Full Name"><h5>Full Name</h5></label>
         </div>
         <div class="row">
-            <div class="col-12">
+            <div class="col-sm-12">
                 <input id='name' type="text" class="form-control" value="{{student_name}}"placeholder="Full name" readonly>
             </div>
         </div>
         <br>
         <div class="row">
-            <div class="col-6">
+            <div class="col-sm-6">
                     <div class="form-group"> 
                             <div style="text-align: left;">
                                     <label for="Select"><h5>Mess Type</h5></label>
                             </div>
-                            <select id="mess-Select" class="form-control">
-                                    <option>Special</option>
-                                    <option>North-Veg</option>
-                                    <option>North Non-Veg</option>
-                                    <option>South-Veg</option>
-                                    <option>South Non-Veg</option>
+                            <select name="mess-Select" class="form-control">
+                                {% for i in hostel_mess %}    
+                                <option>{{i}}</option>
+                                {% endfor %}
                             </select>       
                     </div>
                 </div>
+                <div class="col-sm-6">
                 <div class="form-group">
                         <div style="text-align: left;">
                         <label for="Select"><h5>Hostel Block</h5></label>
                         </div>
-                        <div class="col-12">
-                            <select id="hostel-select" class="form-control">
-                                        <option>A Block</option>
-                                        <option>B Block(Boy's Hostel)</option>
-                                        <option>B Block(Girl's Hostel)</option>
-                                        <option>C Block</option>
+                            <select name="hostel-select" class="form-control">
+                                {% for i in hostel_block %}
+                                        <option>{{i}}</option>
+                                {% endfor %}
                             </select>
                         </div>
                         </div>
@@ -56,69 +70,65 @@
               <br>
                 
         <div class="row">
-            <div class="col-6">
+            <div class="col-sm-6">
                     <div style="text-align: left;">
                             <label for="Student Mobile Number:"><h5>Student Mobile Number</h5></label>
                     </div>
-                    <input id="student-phn" type="tel" max="10" class="form-control" placeholder="Enter your mobile number" required>
+                    <input name="student-phn" type="tel" max="10" class="form-control" placeholder="Enter your mobile number" required>
 
             </div>
-            <div class="col-6">
+            <div class="col-sm-6">
                     <div style="text-align: left;">
                             <label for="Parents Mobile Number:"><h5>Parents Mobile Number</h5></label>
                     </div>
-                    <input type="tel" id="parent-phn" max="10" class="form-control" placeholder="Enter the mobile number" required>
+                    <input type="tel" name="parent-phn" max="10" class="form-control" placeholder="Enter the mobile number" required>
             </div>
         </div>
 
         <br>
         <div class="row">
-            <div class="col-6">
+            <div class="col-sm-6">
                     <div style="text-align: left;">
                             <label for="Time Of Leaving"><h5>Time of Leaving</h5></label>
                     </div>
-                    <div class="row">
-                    <div class="col-7">
-                        <input type="time" class="form-control" required>
+                   
+                    
+                        <input name="t_leave"  type="time" class="form-control" required>
                     </div>
-                    <div class="col-5">
-                    <select id="Select" class="form-control">
-                        <option>AM</option>
-                        <option>PM</option>
-                    </select>
-                    </div>
-                </div>
-            </div>
+                    
+                
+            
             <hr>
-
+        
 
         <!--<div style="text-align: left;">-->
-        <div class="col-6">
+        <div class="col-sm-6">
                 <div style="text-align: left;">   
         <label for="Time Of Arrival"><h5>Time of Arrival</h5></label>
                     </div>
-            <div class="row">
-            <div class="col-7">
-                <input type="time"  class="form-control" required>
+                <input name="t_arrival" type="time"  class="form-control" required>
             </div>
-            <div class="col-5">
-                <select id="Select" class="form-control">
-                    <option>AM</option>
-                    <option>PM</option>
-                </select>
-            </div>
-            </div>
-        </div>
-        </div>
-
         
+        </div>
+        <br>
+        <div style="text-align: left;"> <h5> Choose Date :</h5></div>
+        <div class="row">
+                {% for i in weekends %}
+                <div class="col-sm-6">
+                        <div style="text-align: left;">
+                                <label><input type="radio" name="date" value="{{i}}"><h5>{{i}}</h5></label>
+                        </div>
+                </div>
+                {% endfor %}
+            </div>
+
         <br>
         <div style="text-align: left;">
         <label for="Visiting Address"><h5>Visiting Address</h5></label>
         </div>
         <div class="row">
-                <div class="col-12">
-                    <textarea class="form-control" id="Visiting_address"  rows="3" required></textarea>  
+                <div class="col-sm-12">
+                    <textarea class="form-control" name="Visiting_address"  rows="3" required></textarea>  
                     <!--<input type="text" placeholder="Enter the visiting Address" class="form-control">-->
                 </div>
         </div>
@@ -128,8 +138,8 @@
         <label for="Purpose of Visiting"><h5>Purpose of Visiting</h5></label> 
         </div>
         <div class="row">
-            <div class="col-12">
-                <input type="text" id="pur_visiting" class="form-control" required>
+            <div class="col-sm-12">
+                <input type="text" name="pur_visiting" class="form-control" required>
             </div>
         </div>
         
@@ -138,14 +148,14 @@
         <label for="Permanent Address"><h5>Permanent Address</h5></label>
         </div>
         <div class="row">
-            <div class="col-12">
-                <textarea class="form-control" id="Permanent_address" rows="3" required></textarea>
+            <div class="col-sm-12">
+                <textarea class="form-control" name="Permanent_address" rows="3" required></textarea>
             </div>
         </div>
 
         <br>
         <div class="form-group">
-        <center><button type="button" class="btn btn-primary">Submit</button></center>
+        <center><button type="submit" class="btn btn-primary">Submit</button></center>
     
         </div>
         </form>

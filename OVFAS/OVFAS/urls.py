@@ -23,6 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('ov/',include('ov.urls')),
     path('',views.index,name="homepage"),
+    path('login/',views.login_user,name="login"),
+    path('dashboard/',views.WardenView,name="admin_gui"),
     
 
 ]

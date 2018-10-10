@@ -3,6 +3,20 @@ from django.contrib.admin.widgets import AdminDateWidget
 from django.core.validators import RegexValidator
 import os
 from django.contrib.auth.models import Permission,User
+import datetime
+
+
+
+def cal_weekends():
+	d = datetime.date.today()
+	w=[]
+	while(d.weekday()!=6):
+		d=d+datetime.timedelta(1)
+	w.append(('0',d.strftime("%Y-%m-%d")))
+	w.append(('1',(d+datetime.timedelta(1)).strftime("%Y-%m-%d")))
+	return tuple(w)
+
+
 
 class HostelBlock(models.Model):
     block_name=models.CharField(max_length=100)
@@ -25,6 +39,7 @@ class OutingForm(models.Model):
     viiting_address=models.TextField()
     purpose_of_leaving=models.CharField(max_length=250)
     permanent_address=models.TextField()
+    is_approved=models.BooleanField(default=False)
     def __str__(self):
         return(self.registration_no)
 
@@ -38,9 +53,31 @@ class Student(models.Model):
 
 
 
+class HostelMess(models.Model):
+    MessName=models.CharField(max_length=50,blank=False)
+
+    def __str__(self):
+        return (self.MessName)
+
+
 class visibility(models.Model):
     outing_form=models.BooleanField(default=False)
     
 
+class Warden(models.Model):
+    hostelblock=models.ForeignKey(HostelBlock,on_delete=models.CASCADE)
+    user=models.OneToOneField(User, unique=True,on_delete=models.CASCADE)
+    name=models.CharField(max_length=50,blank=True)
+
+    def __str__(self):
+        return (self.name+' ('+str(self.hostelblock)+')')
+
+        
 
 
+datechoice=cal_weekends()
+
+class Filter(models.Model):
+    hostelblock=models.ForeignKey(HostelBlock,on_delete=models.CASCADE,null=True,blank=True)
+    date_of_outing=models.CharField(max_length=50,choices=datechoice,null=True,blank=True)
+    
